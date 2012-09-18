@@ -1,4 +1,6 @@
 # README - Team WYD
+Update: Service was not working because conversion website blocked IP of server. I've switched to heroku, so it's working currently.
+Will have to think of something for this. Probably some other way to convert audio?
 
 Working!
 
