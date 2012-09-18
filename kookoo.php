@@ -1,4 +1,6 @@
 <?php 
+//recording file url
+//http://recordings.kookoo.in/wyd/test.wav.wav
 session_start();
 require_once("func.php");
 require_once("log.php");
