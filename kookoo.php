@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require_once("func.php");
 require_once("log.php");
 require_once("stt.php");
 require_once("ttw.php");
@@ -23,11 +24,29 @@ else if($_REQUEST['event']=="Record")
     }
     else
     {
-	    $answer = textToWolfram($text);
-	    write_log($answer, 'log.txt');
+    	//Successfuly transcribed, now looking for specific words
+    	if((isPresent($text, 'you')===true)||(isPresent($text, 'your')===true))
+    	{
+    		if(isPresent($text, 'name')===true)
+    		{
+    			$answer = 'My name is Kiri';
+    		}
+    		elseif(isPresent($text, 'who')===true)
+    		{
+    			$answer = 'I am Kiri';
+    		}
+    		else
+    		{
+    			$answer = 'Your answer is '.textToWolfram($text);	
+    		}
+    	}
+    	else
+    	{
+		    $answer = 'Your answer is '.textToWolfram($text);
+		}
+		write_log($answer, 'log.txt');
 	    if($answer)
 	    {
-	    	$r->addPlayText('Your answer is');
 	    	$r->addPlayText($answer);
 	    }
 	    else
