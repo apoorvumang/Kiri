@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <queue>
-	<apiKey>193453e7b2b8a3d102400d21875ec4ae</apiKey>
+	<apiKey>9c95afb078046e7c3dd116bf913060b2</apiKey>
 	<targetType>audio</targetType>
 	<targetMethod>convert-to-flac</targetMethod>
 	<testMode>true</testMode>
