@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once('log.php');
+require_once("log.php");
 require_once("stt.php");
 require_once("ttw.php");
 require_once("response.php");
