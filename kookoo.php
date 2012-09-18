@@ -45,12 +45,10 @@ else if($_REQUEST['event']=="Record")
 		    $answer = 'Your answer is '.textToWolfram($text);
 		}
 		write_log($answer, 'log.txt');
-	    if($answer)
-	    {
-	    	$r->addPlayText($answer);
-	    }
-	    else
-	    	$r->addPlayText('Unable to find answer for your question');
+	    if($answer==='Your answer is ')
+            $r->addPlayText('Unable to find answer for your question');
+        else
+	    	$r->addPlayText($answer);	    	
    	}
     $_SESSION['state'] = '1';
 }
