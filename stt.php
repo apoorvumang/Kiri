@@ -23,7 +23,7 @@ function speechToText($url_record)
 	  curl_close($ch);
 	  return $data;
 	}
-	sleep(8);
+	sleep(10);
 	$xml = simplexml_load_string($response);
 
 	$url_converted = strip_tags($xml->params->downloadUrl->asXML());
