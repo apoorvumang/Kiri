@@ -2,7 +2,7 @@
 function speechToText($url_record)
 {
 	file_put_contents("temp.wav", file_get_contents($url_record));
-	shell_exec('flac temp.wav -o temp.flac -f');
+	shell_exec('./flac temp.wav -o temp.flac -f');
 	$query = file_get_contents('./temp.flac');
 	// ini_set('default_socket_timeout', 20);
 	// file_put_contents("Tmpfile.flac", file_get_contents($matches[1]));
