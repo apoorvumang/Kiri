@@ -1,17 +1,20 @@
 <?php 
 //recording file url
 //http://recordings.kookoo.in/wyd/test.wav.wav
+//state is 0 means state is undefined (ie next step should be independent of state)
 session_start();
 require_once("functions.php");
 require_once("log.php");
 require_once("response.php");
 $r = new Response();
 $r->setFiller("yes");
-if($_REQUEST['event']=="NewCall")
+if($_REQUEST['event']=="NewCall"||$_SESSION['state']=='2')
 {	
-	$r->addPlayText('Welcome to Kiri');
-	$r->addPlayText('Speak after the beep');
+    if($_REQUEST['event']=="NewCall")
+    	$r->addPlayText('Welcome to Kiri');
+    $r->addPlayText('Speak after the beep');
 	$r->addRecord("test.wav", "wav", "2", "5");
+    $_SESSION['state'] = '0';
 }
 else if($_REQUEST['event']=="Record")
 {
@@ -53,8 +56,24 @@ else if($_REQUEST['event']=="Record")
 }
 else if($_SESSION['state']=='1')
 {
-	$r->addPlayText('Thankyou for calling Kiri');
+    $cd = new CollectDtmf();
+    $cd->setMaxDigits("1");
+    $cd->setTimeOut("2000");
+    $cd->addPlayText("Press 1 to ask again 0 to exit");
+    $r->addCollectDtmf($cd);
 	$_SESSION['state'] = '0';
+}
+else if($_REQUEST['event']=='GotDTMF')
+{
+    if($_REQUEST['data']=='1')
+        $_SESSION['state'] = '2';
+    else
+        $_SESSION['state'] = '0';
+}
+else if($_SESSION['state']=='0')
+{
+    $r->addPlayText('Thankyou for calling Kiri');
+    $_SESSION['state'] = '-1';
 }
 else
 {
