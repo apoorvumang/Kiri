@@ -41,7 +41,9 @@ function speechToText($url_record)
 	// File conversion end. result stored in $query
 
 	file_put_contents("temp.wav", file_get_contents($url_record));
+	sleep(1);
 	shell_exec('./flac temp.wav -o temp.flac -f');
+	sleep(2);
 	$query = file_get_contents('temp.flac');
 
 	// ini_set('default_socket_timeout', 20);
