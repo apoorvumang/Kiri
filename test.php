@@ -1,3 +1,4 @@
+Testing git hook
 <?php
 $stturl = "https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-IN";
 	$upload = file_get_contents("try1.flac");
