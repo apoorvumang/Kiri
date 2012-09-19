@@ -2,10 +2,8 @@
 //recording file url
 //http://recordings.kookoo.in/wyd/test.wav.wav
 session_start();
-require_once("func.php");
+require_once("functions.php");
 require_once("log.php");
-require_once("stt.php");
-require_once("ttw.php");
 require_once("response.php");
 $r = new Response();
 $r->setFiller("yes");
