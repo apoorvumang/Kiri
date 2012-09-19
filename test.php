@@ -1,4 +1,3 @@
-Testing git hook
 <?php
 require_once('stt.php');
 echo speechToText("http://recordings.kookoo.in/wyd/test.wav.wav");
