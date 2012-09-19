@@ -25,30 +25,29 @@ else if($_REQUEST['event']=="Record")
     else
     {
     	//Successfuly transcribed, now looking for specific words
-    	if((isPresent($text, 'you')===true)||(isPresent($text, 'your')===true))
-    	{
-    		if(isPresent($text, 'name')===true)
-    		{
-    			$answer = 'My name is Kiri';
-    		}
-    		elseif(isPresent($text, 'who')===true)
-    		{
-    			$answer = 'I am Kiri';
-    		}
-    		else
-    		{
-    			$answer = 'Your answer is '.textToWolfram($text);	
-    		}
-    	}
-    	else
-    	{
-		    $answer = 'Your answer is '.textToWolfram($text);
+        $flag = 0;
+    	if(isPresent($text, 'name')===true&&isPresent($text, 'your')===true)
+		{
+			$answer = 'My name is Kiri';
 		}
-		write_log($answer, 'log.txt');
-	    if($answer==='Your answer is ')
-            $r->addPlayText('Unable to find answer for your question');
+		elseif(isPresent($text, 'who')===true&&isPresent($text, 'you')===true)
+		{
+			$answer = 'I am Kiri';
+    	}
         else
-	    	$r->addPlayText($answer);	    	
+        {
+            $answer = textToWolfram($text);
+            $flag = 1;
+        }
+		write_log($answer, 'log.txt');
+	    if($answer)
+        {
+            if($flag===1)
+                $r->addPlayText('Your answer is');
+            $r->addPlayText($answer);
+        }
+        else
+            $r->addPlayText('Unable to find answer for your question');
    	}
     $_SESSION['state'] = '1';
 }
