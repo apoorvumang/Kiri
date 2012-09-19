@@ -4,39 +4,46 @@ function speechToText($url_record)
 	//$url_record = "http://drmahima.com/try1.wav";
 	//assume $url_record contains url of sound recording (.wav)
 
-	$ch = curl_init("http://api.online-convert.com/queue-insert");
-	$request["queue"] = file_get_contents("convertapi1.xml").$url_record.file_get_contents("convertapi2.xml");
-	curl_setopt($ch, CURLOPT_HEADER, 0);
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
-	$response = curl_exec($ch);
-	curl_close ($ch);
 
-	function get_data($url) {
-	  $ch = curl_init();
-	  $timeout = 5;
-	  curl_setopt($ch, CURLOPT_URL, $url);
-	  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-	  $data = curl_exec($ch);
-	  curl_close($ch);
-	  return $data;
-	}
-	sleep(12);
-	$xml = simplexml_load_string($response);
+	// File Conversion start
+	// $ch = curl_init("http://api.online-convert.com/queue-insert");
+	// $request["queue"] = file_get_contents("convertapi1.xml").$url_record.file_get_contents("convertapi2.xml");
+	// curl_setopt($ch, CURLOPT_HEADER, 0);
+	// curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
+	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	// curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
+	// $response = curl_exec($ch);
+	// curl_close ($ch);
 
-	$url_converted = strip_tags($xml->params->downloadUrl->asXML());
-	$result = get_data($url_converted);
-	preg_match("/<a href=\"([^\"]*)\.flac\">(.*)<\/a>/iU", $result, $matches);
+	// function get_data($url) {
+	//   $ch = curl_init();
+	//   $timeout = 5;
+	//   curl_setopt($ch, CURLOPT_URL, $url);
+	//   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	//   curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+	//   $data = curl_exec($ch);
+	//   curl_close($ch);
+	//   return $data;
+	// }
+	// sleep(12);
+	// $xml = simplexml_load_string($response);
 
-	$curl_handle=curl_init();
-	curl_setopt($curl_handle, CURLOPT_URL, $matches[1]);
-	curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 20);
-	curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($curl_handle, CURLOPT_USERAGENT, 'STT try');
-	$query = curl_exec($curl_handle);
-	curl_close($curl_handle);
+	// $url_converted = strip_tags($xml->params->downloadUrl->asXML());
+	// $result = get_data($url_converted);
+	// preg_match("/<a href=\"([^\"]*)\.flac\">(.*)<\/a>/iU", $result, $matches
+	// $curl_handle=curl_init();
+	// curl_setopt($curl_handle, CURLOPT_URL, $matches[1]);
+	// curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 20);
+	// curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+	// curl_setopt($curl_handle, CURLOPT_USERAGENT, 'STT try');
+	// $query = curl_exec($curl_handle);
+	// curl_close($curl_handle);
+	// File conversion end. result stored in $query
+
+	file_put_contents("temp.wav", file_get_contents($url_record));
+	shell_exec('./flac temp.wav -o temp.flac');
+	$query = file_get_contents('temp.flac');
+
 	// ini_set('default_socket_timeout', 20);
 	// file_put_contents("Tmpfile.flac", file_get_contents($matches[1]));
 
