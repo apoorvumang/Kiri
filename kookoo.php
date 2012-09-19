@@ -15,7 +15,7 @@ if($_REQUEST['event']=="NewCall")
 }
 else if($_REQUEST['event']=="Record")
 {
-//    sleep(3);
+    sleep(2);
     $text = speechToText($_REQUEST['data']);
     write_log($text, 'log.txt');
     if(!$text)
