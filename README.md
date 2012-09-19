@@ -1,4 +1,6 @@
 # README - Team WYD
+Update: Switched to iakshay.net, converting on server itself. Response time is now less than 10 seconds
+
 Update: Service was not working because conversion website blocked IP of server. I've switched to heroku, so it's working currently.
 Will have to think of something for this. Probably some other way to convert audio?
 
