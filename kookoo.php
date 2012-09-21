@@ -34,7 +34,7 @@ else if($_REQUEST['event']=="Record")
         {
             $answer = getWeather($text);
         }
-    	if(isPresent($text, 'name')===true&&isPresent($text, 'your')===true)
+    	elseif(isPresent($text, 'name')===true&&isPresent($text, 'your')===true)
 		{
 			$answer = 'My name is Kiri';
 		}
