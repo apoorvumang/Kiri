@@ -6,6 +6,7 @@ session_start();
 require_once("functions.php");
 require_once("log.php");
 require_once("response.php");
+require_once("weather.php");
 $r = new Response();
 $r->setFiller("yes");
 if($_REQUEST['event']=="NewCall"||$_SESSION['state']=='2')
@@ -29,6 +30,10 @@ else if($_REQUEST['event']=="Record")
     {
     	//Successfuly transcribed, now looking for specific words
         $flag = 0;
+        if(isPresent($text, "weather")===true)
+        {
+            $answer = getWeather($text);
+        }
     	if(isPresent($text, 'name')===true&&isPresent($text, 'your')===true)
 		{
 			$answer = 'My name is Kiri';
