@@ -1,6 +1,6 @@
 # README - Team WYD
-Problem: Quite often previous recording is used instead of what user said. Could be problem with either too little sleep in
-beginning, or too little maximum silence
+Problem: Quite often previous recording is used instead of what user said. Could be problem with either too little sleep after 
+record, or too little maximum silence
 
 Update: Switched to iakshay.net, converting on server itself. Response time is now less than 10 seconds
 
