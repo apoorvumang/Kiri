@@ -9,7 +9,7 @@ function getCricket()
 		$score = str_replace('-', " for ", $score);
 		$score = str_replace('(', "after ", $score);
 		$score = str_replace(')', " overs", $score);
-		return $obj->match." ".$obj->score;
+		return $obj->match." ".$score;
 	}
 	else
 		return "Could not find match data.";
