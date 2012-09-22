@@ -1,7 +1,5 @@
 <?php
-// execute query
-// get list of 15 most popular music releases
-// retrieve result as SimpleXML object
+//Using wunderground
 require_once('functions.php');
 
 function getWeather($text)

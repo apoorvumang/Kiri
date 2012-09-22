@@ -7,6 +7,7 @@ require_once("functions.php");
 require_once("log.php");
 require_once("response.php");
 require_once("weather.php");
+require_once("movie.php");
 $r = new Response();
 $r->setFiller("yes");
 if($_REQUEST['event']=="NewCall"||$_SESSION['state']=='2')
@@ -33,6 +34,10 @@ else if($_REQUEST['event']=="Record")
         if(isPresent($text, "weather")===true)
         {
             $answer = getWeather($text);
+        }
+        elseif(isPresent($text, 'movie')===true||isPresent($text, 'review')===true)
+        {
+            $answer = getMovie($text);
         }
     	elseif(isPresent($text, 'name')===true&&isPresent($text, 'your')===true)
 		{
