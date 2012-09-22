@@ -1,4 +1,6 @@
 # README - Team WYD
+Update: Added movie feature. Just say movie review for <movie> or a similar phrase, and it will give you the score as well
+as the critics consensus.
 
 Update: Added weather feature. Just ask kiri what the weather is in a city and it'll tell you just that. Using wunderground
 api for this thing.
