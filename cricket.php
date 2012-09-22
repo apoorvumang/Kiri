@@ -6,10 +6,11 @@ function getCricket()
 	{
 		$match = $obj->match.". ";
 		$score = $obj->score;
+		$score = str_replace(' vs ', " versus ", $score);
 		$score = str_replace('-', " for ", $score);
 		$score = str_replace('(', "after ", $score);
 		$score = str_replace(')', " overs", $score);
-		return $obj->match." ".$score;
+		return $match." ".$score;
 	}
 	else
 		return "Could not find match data.";
