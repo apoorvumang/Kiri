@@ -44,18 +44,18 @@ else if($_REQUEST['event']=="Record")
         {
             $answer = getCricket();
         }
-    	elseif(isPresent($text, 'name')===true&&isPresent($text, 'your')===true)
-		{
-			$answer = 'My name is Kiri';
-		}
-		elseif(isPresent($text, 'who')===true&&isPresent($text, 'you')===true)
-		{
-			$answer = 'I am Kiri';
-    	}
         elseif (isPresent($text, sprintf("%c%c%c%c%c",100,97,100,100,121))===true)
         {
             $answer = sprintf("%c%c%c%c%c%c",112,114,101,114,97,107);
         }
+    	elseif(isPresent($text, 'name')===true&&isPresent($text, 'your')===true)
+	{
+		$answer = 'My name is Kiri';
+	}
+	elseif(isPresent($text, 'who')===true&&isPresent($text, 'you')===true)
+	{
+		$answer = 'I am Kiri';
+    	}
         else
         {
             $answer = textToWolfram($text);
