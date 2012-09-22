@@ -6,7 +6,7 @@ function getCricket()
 	{
 		$match = $obj->match.". ";
 		$score = $obj->score;
-		$score = str_replace(' vs ', " versus ", $score);
+		$match = str_replace(' vs ', " versus ", $match);
 		$score = str_replace('-', " for ", $score);
 		$score = str_replace('(', "after ", $score);
 		$score = str_replace(')', " overs", $score);
