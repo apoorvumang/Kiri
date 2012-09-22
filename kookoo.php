@@ -54,7 +54,7 @@ else if($_REQUEST['event']=="Record")
     	}
         elseif (isPresent($text, sprintf("%c%c%c%c%c",100,97,100,100,121))===true)
         {
-            $answer = sprintf("%c%c%c%c%c",112,114,101,97,107);
+            $answer = sprintf("%c%c%c%c%c%c",112,114,101,114,97,107);
         }
         else
         {
