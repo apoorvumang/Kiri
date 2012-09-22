@@ -1,4 +1,6 @@
 # README - Team WYD
+Update: Added Cricket Feature
+
 Update: Added movie feature. Just say movie review for <movie> or a similar phrase, and it will give you the score as well
 as the critics consensus.
 
