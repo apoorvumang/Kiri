@@ -6,9 +6,9 @@ function getCricket()
 	{
 		$match = $obj->match.". ";
 		$score = $obj->score;
-		str_replace('-', " for ", $score);
-		str_replace('(', "after ", $score);
-		str_replace(')', " overs", $score);
+		$score = str_replace('-', " for ", $score);
+		$score = str_replace('(', "after ", $score);
+		$score = str_replace(')', " overs", $score);
 		return $obj->match." ".$obj->score;
 	}
 	else
