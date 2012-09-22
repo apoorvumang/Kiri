@@ -40,7 +40,7 @@ else if($_REQUEST['event']=="Record")
         {
             $answer = getMovie($text);
         }
-        elseif(isPresent($text, 'cricket')===true&&isPresent($text, 'score'===true))
+        elseif(isPresent($text, 'cricket')===true&&isPresent($text, 'score')===true)
         {
             $answer = getCricket();
         }
