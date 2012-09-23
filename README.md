@@ -2,7 +2,6 @@
 To try the latest code:
 
 Call 011-30908632
-
 Ask a question after the beep.
 
 Wait 5-10 seconds. It will return answer of the query.
