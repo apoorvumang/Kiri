@@ -4,13 +4,13 @@
 //state is 0 means state is undefined (ie next step should be independent of state)
 session_start();
 require_once("functions.php");
-require_once("log.php");
+//require_once("log.php"); won't work on heroku
 require_once("response.php");
 require_once("weather.php");
 require_once("movie.php");
 require_once("cricket.php");
 
-error_log(implode(',', $_REQUEST), 0);
+console_log(implode(',', $_REQUEST);
 $r = new Response();
 $callback_url = "http://kiri.herokuapp.com/transcribe.php";
 $r->setFiller("yes");

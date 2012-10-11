@@ -54,4 +54,10 @@ function textToWolfram($text)
     $answer = $obj->pod->subpod->plaintext;
     return $answer;
 }
+
+function console_log($msg){
+	$STDERR = fopen("php://stderr", "w");
+	fwrite($STDERR, $msg);
+	fclose($STDERR);
+}
 ?>
