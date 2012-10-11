@@ -1,3 +1,5 @@
 <?php
-	error_log('Logging error', 0);
+	$STDOUT = fopen("php://stdout", "w");
+	fwrite($STDOUT, "Output #1.");
+	fclose($STDOUT);
 ?>
