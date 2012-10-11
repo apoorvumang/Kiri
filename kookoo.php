@@ -26,7 +26,7 @@ if($_REQUEST['event']=="NewCall"||$_SESSION['state']=='2')
 else if($_REQUEST['transcript_text'])
 {
     $text = $_REQUEST['transcript_text'];//speechToText($_REQUEST['data']);
-    write_log($text, 'log.txt');
+    console_log($text);
     if(!$text)
     {
     	$r->addPlayText('Sorry, I was unable to understand your voice');
@@ -64,7 +64,7 @@ else if($_REQUEST['transcript_text'])
             $answer = textToWolfram($text);
             $flag = 1;
         }
-		write_log($answer, 'log.txt');
+		console_log($answer);
 	    if($answer)
         {
             if($flag===1)
