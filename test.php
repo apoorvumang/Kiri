@@ -1,5 +1,5 @@
 <?php
-	$STDOUT = fopen("php://stdout", "w");
+	$STDOUT = fopen("php://stderr", "w");
 	fwrite($STDOUT, "Output #1.");
 	fclose($STDOUT);
 ?>
