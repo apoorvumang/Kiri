@@ -1,4 +1,3 @@
 <?php
-	require_once("cricket.php");
-	echo getCricket(" ");
+	error_log('Logging error', 0);
 ?>
