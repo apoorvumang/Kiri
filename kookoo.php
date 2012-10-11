@@ -12,7 +12,7 @@ require_once("cricket.php");
 
 console_log(implode(',', $_REQUEST));
 $r = new Response();
-$callback_url = "http://kiri.herokuapp.com/transcribe.php";
+$callback_url = "http://kiri.herokuapp.com/kookoo.php";
 $r->setFiller("yes");
 if($_REQUEST['event']=="NewCall"||$_SESSION['state']=='2')
 {	
