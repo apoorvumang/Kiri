@@ -155,7 +155,7 @@
 			$record->setAttribute("maxduration",$maxduration);
 			$record->setAttribute("option",$option);//k= keep recording after hangup
 			if($transcribe_callback){
-				$record->setAttribute("transcribe", true);
+				$record->setAttribute("transcribe", "true");
 				$record->setAttribute("transcribe_callback_url", $transcribe_callback);
 			}
 			$this->response->appendChild($record );
