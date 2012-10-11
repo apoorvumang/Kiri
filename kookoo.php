@@ -20,10 +20,10 @@ if($_REQUEST['event']=="NewCall"||$_SESSION['state']=='2')
 	$r->addRecord("test.wav", "wav", "3", "10", "k", $callback_url);
     $_SESSION['state'] = '0';
 }
-else if($_REQUEST['event']=="Record")
+//else if($_REQUEST['event']=="Record")
+else if($_REQUEST['transcript_text'])
 {
-    sleep(4);
-    $text = speechToText($_REQUEST['data']);
+    $text = $_REQUEST['transcript_text'];//speechToText($_REQUEST['data']);
     write_log($text, 'log.txt');
     if(!$text)
     {
