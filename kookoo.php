@@ -9,6 +9,8 @@ require_once("response.php");
 require_once("weather.php");
 require_once("movie.php");
 require_once("cricket.php");
+
+error_log(implode(',', $_REQUEST), 0);
 $r = new Response();
 $callback_url = "http://kiri.herokuapp.com/transcribe.php";
 $r->setFiller("yes");
