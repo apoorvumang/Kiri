@@ -149,7 +149,7 @@
 		//recordtag
 		public function addRecord($filename,$format="wav", $silence="4", $maxduration="60", $option="k", $transcribe_callback=false)
 		{
-			$record = $this->doc->createElement("record",$filename);
+			$record = $this->doc->createElement("record");
 			//$record->setAttribute("format", $format );
 			$record->setAttribute("silence", $silence);
 			$record->setAttribute("maxduration",$maxduration);
