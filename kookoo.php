@@ -10,13 +10,14 @@ require_once("weather.php");
 require_once("movie.php");
 require_once("cricket.php");
 $r = new Response();
+$callback_url = "http://kiri.herokuapp.com/kookoo.php";
 $r->setFiller("yes");
 if($_REQUEST['event']=="NewCall"||$_SESSION['state']=='2')
 {	
     if($_REQUEST['event']=="NewCall")
     	$r->addPlayText('Welcome to Kiri');
     $r->addPlayText('Speak after the beep');
-	$r->addRecord("test.wav", "wav", "3", "10");
+	$r->addRecord("test.wav", "wav", "3", "10", "k", $callback_url);
     $_SESSION['state'] = '0';
 }
 else if($_REQUEST['event']=="Record")
