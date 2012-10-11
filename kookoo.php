@@ -10,7 +10,7 @@ require_once("weather.php");
 require_once("movie.php");
 require_once("cricket.php");
 $r = new Response();
-$callback_url = "http://kiri.herokuapp.com/kookoo.php";
+$callback_url = "http://kiri.herokuapp.com/transcribe.php";
 $r->setFiller("yes");
 if($_REQUEST['event']=="NewCall"||$_SESSION['state']=='2')
 {	
